@@ -60,21 +60,5 @@ for (var i = 0; i < MAX_STUDENTS_QTY; i++) {
     randomData.getNumbers(STUDENT_GRADES_QTY)
   ));
 }
-/*
-function GradesAvarage() {
-  
-}
 
-Student.prototype.GradesAverage = function(grades) {
-  var sum = 0;
-  
-  for(var i = 0; i < grades.length; i++) {
-    sum+=grades[i];
-  }
-  
-  return sum/grades.length;
-}
-
-Student.average = Student.GradesAverage(this.grades);
-*/
 console.log(students);
