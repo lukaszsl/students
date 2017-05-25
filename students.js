@@ -10,8 +10,8 @@ function Student(name, surname, grades) {
   this.name = name;
   this.surname = surname;
   this.grades = grades;
-  this.avarage = GradesAverage(this.grades);
-  
+  this.avarage = 0;
+  /*
   function GradesAverage(grades) {
     var sum = 0;
   
@@ -21,6 +21,7 @@ function Student(name, surname, grades) {
   
   return sum/grades.length;
   }
+  */
 }
 
 function RandomData() {
@@ -50,15 +51,35 @@ RandomData.prototype.getNumbers = function(qty) {
   return result;
 }
 
+function GradesAverage() {
+   // ---
+}
+
+GradesAverage.prototype.getAverage = function(grades) {
+  var sum = 0;
+  this.grades = Student.grades;
+  for(var i = 0; i < grades.length; i++) {
+    sum+=grades[i];
+  }
+  
+  return sum/grades.length;
+}
+
 var students = [],
-    randomData = new RandomData();
+    randomData = new RandomData(),
+    studentAverage = new GradesAverage();
 
 for (var i = 0; i < MAX_STUDENTS_QTY; i++) {
   students.push(new Student(
     randomData.getName(),
     randomData.getSurname(),
-    randomData.getNumbers(STUDENT_GRADES_QTY)
+    randomData.getNumbers(STUDENT_GRADES_QTY),
+    studentAverage.getAverage(this.grades)
   ));
 }
+
+
+
+
 
 console.log(students);
