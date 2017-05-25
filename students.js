@@ -15,7 +15,7 @@ function Student(name, surname, grades) {
   function GradesAverage(grades) {
     var sum = 0;
   
-    for(var i = 0; i < grades.length; i++) {
+    for(var i = 0, size = grades.length; i < size; i++) {
       sum+=grades[i];
   }
   
