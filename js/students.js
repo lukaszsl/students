@@ -10,7 +10,7 @@ function Student(name, surname, grades, average) {
   this.name = name;
   this.surname = surname;
   this.grades = grades;
-  this.avarage = average;
+  this.average = average;
 }
 
 function GradesAverage() {
@@ -51,6 +51,14 @@ StudentsData.prototype.getGrades = function(qty) {
   return result;
 }
 
+function Report() {
+  // ---
+}
+
+Report.prototype.getReport = function() {
+  alert('name: ' + students[0].name + '\n' + 'surname: ' + students[0].surname + '\n' + 'average grade:' + students[0].average);
+}
+
 var students = [],
     studentData = new StudentsData(),
     studentAverage = new GradesAverage(); 
@@ -67,4 +75,6 @@ for (var i = 0; i < MAX_STUDENTS_QTY; i++) {
     ));
 }
 
+alert('name: ' + students[0].name + '\n' + 'surname: ' + students[0].surname + '\n' + 'average grade: ' + students[0].average);
 console.log(students);
+
