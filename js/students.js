@@ -1,4 +1,4 @@
-var MAX_STUDENTS_QTY = 3,
+var MAX_STUDENTS_QTY = 2,
     STUDENT_GRADES_QTY = 3,
     MAX_GRADE = 6;
 
@@ -18,13 +18,13 @@ function GradesAverage() {
 }
 
 GradesAverage.prototype.getAverage = function(grades) {
-   var sum = 0;
+  var sum = 0;
   
-    for(var i = 0; i < grades.length; i++) {
+    for(var i = 0; i < STUDENT_GRADES_QTY; i++) {
       sum+=grades[i];
-  }
-  
-  return sum/grades.length;
+    }
+
+  return sum/STUDENT_GRADES_QTY;
 }
 
 function StudentsData() {
@@ -55,17 +55,22 @@ function Report() {
   // ---
 }
 
-Report.prototype.getReport = function() {
-  alert('name: ' + students[0].name + '\n' + 'surname: ' + students[0].surname + '\n' + 'average grade:' + students[0].average);
+Report.prototype.getReport = function(studentsData) {
+  for(var i = 0; i < MAX_STUDENTS_QTY; i++) {
+    alert('name: ' + studentsData[i].name + '\n' + 'surname: ' + studentsData[i].surname + '\n' + 'average: ' + studentsData[i].average); 
+  }
+  
 }
 
 var students = [],
+    studentGrades = [],
     studentData = new StudentsData(),
-    studentAverage = new GradesAverage(); 
+    studentAverage = new GradesAverage()
+    studentsReport = new Report(); 
 
 for (var i = 0; i < MAX_STUDENTS_QTY; i++) {
 
-  var studentGrades;
+  
 
   students.push(new Student(
       studentData.getName(),
@@ -75,6 +80,6 @@ for (var i = 0; i < MAX_STUDENTS_QTY; i++) {
     ));
 }
 
-alert('name: ' + students[0].name + '\n' + 'surname: ' + students[0].surname + '\n' + 'average grade: ' + students[0].average);
+studentsReport.getReport(students);
 console.log(students);
 
