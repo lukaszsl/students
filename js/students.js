@@ -45,7 +45,7 @@ StudentsData.prototype.getGrades = function(qty) {
   var result = [];
   
   for(var i = 0; i < qty; i++) {
-    result.push(prompt('Student\'s grade:'));  
+    result.push(+prompt('Student\'s grade:'));  
   }    
   
   return result;
